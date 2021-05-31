@@ -32,8 +32,16 @@ export default function IndexPage(props) {
     history.push(path);
   };
 
+  const sendMessage = () => {
+    if (window.BroadcastChannel) {
+      const channel = new BroadcastChannel("cookieChannel");
+      channel.postMessage("userChange");
+    }
+  }
+
   return (
     <div className={`main-container`}>
+      <Button onClick={sendMessage}>发送消息</Button>
       <div className={'header-bar'}>
         <div className={`menu-list`}>
           <span className={'logo'} onClick={() => goMicro('/')}>
