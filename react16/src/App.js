@@ -10,10 +10,13 @@ import HelloModal from './components/HelloModal';
 
 import Home from './pages/Home';
 const About = lazy(() => import('./pages/About'));
+// import { useModel } from '@umijs/plugin-model';
 
 const RouteExample = () => {
+    // const masterProps = useModel('@@qiankunStateFromMaster');
   return (
     <Router basename={window.__POWERED_BY_QIANKUN__ ? '/react16' : '/'}>
+        // <div>{JSON.stringify(masterProps)}</div>
       <nav>
         <Link to="/">Home</Link>
 

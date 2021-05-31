@@ -6,6 +6,7 @@ import { enableES5 } from 'immer';
 enableES5();
 
 import axios from 'axios';
+import {useState} from 'react'
 
 
 // addLocale(
@@ -84,3 +85,51 @@ import axios from 'axios';
 //     return ctx;
 //   },
 // };
+
+// export function useQiankunStateForSlave() {
+//   const [masterState, setMasterState] = useState({id:123,name:'libo'});
+//
+//   return {
+//     masterState,
+//     setMasterState,
+//   };
+// }
+
+/*export const qiankun =  Promise.resolve('suceess').then(() => ({
+  apps: [
+    {
+      name: 'app1', // 唯一 id
+      entry: '//localhost:7100', // html entry
+    },
+    {
+      name: 'app2', // 唯一 id
+      entry: '//localhost:7105', // html entry
+    },
+    {
+      name: 'app3', // 唯一 id
+      entry: '//localhost:7103', // html entry
+    },
+  ],
+  lifeCycles: {
+    afterMount: (props) => {
+      console.log(props);
+    },
+  },
+  routes: [
+    {
+      path: '/react16',
+      microApp: 'app1',
+      microAppProps: { autoSetLoading: false },
+    },
+    {
+      path: '/vue3',
+      microApp: 'app2',
+      microAppProps: { autoSetLoading: false },
+    },
+    {
+      path: '/angular9',
+      microApp: 'app3',
+      microAppProps: { autoSetLoading: false },
+    },
+  ],
+}));*/
