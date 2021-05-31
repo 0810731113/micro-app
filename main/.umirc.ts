@@ -102,5 +102,5 @@ export default defineConfig({
       ],
     },
   },
-  headScripts: [`https://unpkg.com/zone.js`],
+  // headScripts: [`https://unpkg.com/zone.js`],
 });
