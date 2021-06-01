@@ -16,12 +16,29 @@ export default function IndexPage(props) {
   const [city, setCity] = useState([]);
   const changeEmitEvent = () => {};
   const [publicPath, setPublicPath] = useState('/');
+  const [message,setMessage] = useState('');
   useEffect(() => {
     history.listen((location, action) => {
       console.log(location);
       console.log(action);
       setPublicPath(location.pathname);
     });
+    return () => {};
+  }, []);
+  useEffect(() => {
+
+    if (window.BroadcastChannel) {
+      const channel = new BroadcastChannel("cookieChannel");
+      channel.onmessage = ({data}) => {
+        console.log(`cookieChannel`);
+        console.log(data);
+        setMessage(JSON.stringify(data));
+      };
+      return () => {
+        channel.close();
+      };
+    }
+
     return () => {};
   }, []);
   const goLogin = () => {
@@ -35,13 +52,15 @@ export default function IndexPage(props) {
   const sendMessage = () => {
     if (window.BroadcastChannel) {
       const channel = new BroadcastChannel("cookieChannel");
-      channel.postMessage("userChange");
+      const masg = {from:'parent',to:'/react16',message:'我是父节点发来的消息'}
+      channel.postMessage(JSON.stringify(masg));
     }
   }
 
   return (
     <div className={`main-container`}>
       <Button onClick={sendMessage}>发送消息</Button>
+      <div>我收到来自子应用的消息: {message}</div>
       <div className={'header-bar'}>
         <div className={`menu-list`}>
           <span className={'logo'} onClick={() => goMicro('/')}>

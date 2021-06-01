@@ -3,13 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@umijs/plugin-model": "^2.6.0",
-    "@umijs/preset-react": "^1.8.8",
     "antd": "^3.25.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-router-dom": "^5.1.2",
-    "umi": "^3.4.23"
+    "react-router-dom": "^5.1.2"
   },
   "scripts": {
     "start": "rescripts start",
